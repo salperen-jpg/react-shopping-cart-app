@@ -1,13 +1,208 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap');
+
+*,
+::after,
+::before {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --clr-primary-pale: hsla(236, 100%, 94%, 0.897);
+  --clr-bright-blue: hsl(245, 75%, 52%);
+  --clr-very-pale-blue: hsl(225, 100%, 98%);
+  --clr-very-desaturated-blue: hsl(224, 23%, 55%);
+  --clr-very-dark-blue: hsl(223, 47%, 23%);
+  --spacing: 0.25rem;
+  --radius: 10px;
+  --transition: all 1s linear;
+}
+body {
+  font-family: 'Red Hat Display';
+}
+img {
+  display: block;
+  width: 100%;
+}
+
+/* NAVBAR */
+nav {
+  padding: 1rem 2rem;
+  background: var(--clr-very-dark-blue);
+  display: grid;
+  /* align-items: center; */
+}
+
+.nav-center {
+  width: 100%;
+  max-width: 70rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.title-logo {
+  color: #f7f7f7;
+  text-transform: uppercase;
+  letter-spacing: var(--spacing);
+  text-shadow: 2px 2px 2px #222;
+}
+.nav-container {
+  display: block;
+  position: relative;
+}
+.amount-container {
+  margin-top: 0.2rem;
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  top: -0.75rem;
+  right: -0.75rem;
+  background: #617d98;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.amount-container p {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #fff;
+}
+.nav-container i {
+  font-size: 2rem;
+  color: var(--clr-very-pale-blue);
+}
+
+/* SHOPPING BAG */
+.shopping-bag {
+  width: 90vw;
+  max-width: 70rem;
+  margin: 0 auto;
+  margin-top: 5rem;
+  /* padding: 2rem; */
+}
+/* SECTION TITLE  */
+.section-title {
+  text-align: center;
+}
+
+.section-title h2 {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  color: var(--clr-very-dark-blue);
+  letter-spacing: var(--spacing);
+  text-shadow: 2px 0 2px #222;
+}
+
+.underline {
+  width: 100%;
+  height: 0.25rem;
+  background: var(--clr-very-dark-blue);
+  margin: 2rem auto;
+}
+/* CARD */
+.card {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
+  padding: 2.5rem 0;
+}
+.card-info {
+  padding: 0 1rem;
+  text-transform: capitalize;
+}
+.title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.price {
+  color: #617d98;
+}
+.card img {
+  height: 5rem;
+  width: 5rem;
+  object-fit: cover;
+}
+.delete-btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  border: none;
+  background: transparent;
+  letter-spacing: var(--spacing);
+  color: var(--clr-very-dark-blue);
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: all 0.2 linear;
+}
+.delete-btn:hover {
+  border-bottom: 1px solid var(--clr-very-dark-blue);
+}
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.amount-quantity {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.amount-btn {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  border: none;
+  background: #617d98;
+  font-size: 1rem;
+  color: var(--clr-bright-blue);
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.amount-btn:hover {
+  color: var(--clr-very-dark-blue);
+}
+
+.card-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.card-footer > h3 {
+  text-transform: capitalize;
+  font-size: 1.2rem;
+}
+.total-price {
+  justify-self: end;
+  font-size: 1.2rem;
+  color: rgb(211, 28, 28);
+}
+.clear-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+.clear-btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border: none;
+  background: var(--clr-very-desaturated-blue);
+  color: #f7f7f7;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+.clear-btn:hover {
+  background: var(--clr-very-dark-blue);
+}
+
+.empty-bag {
+  margin-top: 5rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: red;
+  font-size: 2rem;
 }
