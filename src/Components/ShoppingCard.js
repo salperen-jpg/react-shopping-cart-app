@@ -2,14 +2,16 @@ import React from 'react';
 import { useGlobalContext } from '../context';
 import Card from './Card';
 import SectionTitle from '../SectionTitle';
+import Alert from '../Alert';
 
 const ShoppingCard = () => {
-  const { cartItems, total, clearBag } = useGlobalContext();
-
+  const { cartItems, total, clearBag, alert } = useGlobalContext();
+  console.log(alert.show);
   if (cartItems.length === 0) {
     return (
       <section className='shopping-bag'>
         <SectionTitle />
+        {/* {alert.show && <Alert />} */}
         <h1 className='empty-bag'>No item in your bag !</h1>
       </section>
     );
@@ -23,6 +25,7 @@ const ShoppingCard = () => {
           return <Card {...singleItem} key={singleItem.id} />;
         })}
       </div>
+
       <div className='underline'></div>
       <div className='card-footer'>
         <h3>total</h3>

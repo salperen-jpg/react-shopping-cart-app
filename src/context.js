@@ -9,6 +9,11 @@ const defaulState = {
   cartItems: data,
   amount: 0,
   total: 0,
+  alert: {
+    show: false,
+    type: '',
+    msg: '',
+  },
 };
 
 export const AppProvider = ({ children }) => {
@@ -29,9 +34,20 @@ export const AppProvider = ({ children }) => {
     dispatch({ type: 'DECREASE', payload: id });
   };
 
+  const closeModal = () => {
+    dispatch({ type: 'CLOSE_MODAL' });
+  };
+
   return (
     <AppContext.Provider
-      value={{ ...state, clearBag, removeItem, increaseAmount, decreaseAmount }}
+      value={{
+        ...state,
+        clearBag,
+        removeItem,
+        increaseAmount,
+        decreaseAmount,
+        closeModal,
+      }}
     >
       {children}
     </AppContext.Provider>
