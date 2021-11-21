@@ -1,4 +1,4 @@
-import React, { useContext, useState, useReducer } from 'react';
+import React, { useContext, useEffect, useState, useReducer } from 'react';
 import reducer from './Components/reducer';
 import data from './Components/data';
 
@@ -37,6 +37,10 @@ export const AppProvider = ({ children }) => {
   const closeModal = () => {
     dispatch({ type: 'CLOSE_MODAL' });
   };
+
+  useEffect(() => {
+    dispatch({ type: 'GET_TOTAL' });
+  }, [state.cartItems]);
 
   return (
     <AppContext.Provider
